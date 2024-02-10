@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 
 app.use(cors());
+app.get('/', (req, res) => res.send('hello, express world'));
 // Define associations and sync the database
 const User = require('./models/User');
 User.sync();
@@ -37,12 +38,25 @@ app.use(authRoutes);
 app.use(courseRoutes);
 app.use(userRoutes);
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
   console.log(`Server is listening on port 3000 ${process.env.POSTGRESQL_DB}`);
 });
 
 
 //To insert data from csv file----->
-// const services = require('./controllers/serviceController');
-// const csvFilePath = '../model/Design_Udemy.csv';
-// services.insertDataFromCSV(csvFilePath)
+//const services = require('./controllers/serviceController');
+//const csvFilePath = '../model/Design_Udemy.csv';
+//services.insertDataFromCSV(csvFilePath)
+
+
+
+/* const express = require('express') 
+const app = express() 
+  
+app.get("/messages", (req, res) => { 
+    res.send("Hello"); 
+}); 
+  
+app.listen(3000, () => { 
+    console.log("listening on http://localhost:3000"); 
+}) */

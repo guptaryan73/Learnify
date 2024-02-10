@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, jsonify
-import pandas as pd 
-from sklearn.feature_extraction.text import CountVectorizer
-from neattext.functions import clean_text
-from sklearn.metrics.pairwise import cosine_similarity
 import os
+
+import pandas as pd
+from flask import Flask, jsonify, render_template, request
+from neattext.functions import clean_text
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
@@ -117,4 +118,6 @@ cosine_sim_mat = vectorize_text_to_cosine_mat(df['course_title'])
 
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',port=5000)
+    app.run(host= '0.0.0.0',port=6000)
+
+""" model ke andar jake - python3 app.py """
